@@ -1,13 +1,20 @@
 .siderHeader {
   padding: 12px 16px;
+  margin-bottom: 16px;
 }
 
-.dropdownBtn {
-  display: flex;
-  border: none;
-  padding: 6px 9px 6px 6px;
+.dropdownBtnBig {
+  border: 0 !important;
+  padding: 6px 9px 6px 6px !important;
   margin-right: 8px;
   width: 144px;
   font-size: 13px;
   overflow: hidden;
+}
+
+.dropdownBtn {
+  border: 0 !important;
+  width: 144px;
+  overflow: hidden;
+  padding: 6px 9px 6px 6px !important;
 }

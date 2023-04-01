@@ -18,11 +18,11 @@ export default function HomeSider() {
   return (
     <div>
       <Row align="center" justify="start" className={classes.siderHeader}>
-        <Col span={20} style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+        <Col span={20}>
           <Dropdown droplist={dropList} position="bl" trigger={"click"}>
             <Button
               type="text"
-              className={classes.dropdownBtn}
+              className={classes.dropdownBtnBig}
               icon={
                 <Avatar
                   size={18}
@@ -53,8 +53,37 @@ export default function HomeSider() {
             </Button>
           </Dropdown>
         </Col>
-        <Col span={4}>zzz</Col>
-        <Col span={20}>New issue</Col>
+        <Col span={4}>
+          <Dropdown droplist={dropList} position="bl" trigger={"click"}>
+            <Button
+              type="text"
+              iconOnly={true}
+              className={classes.dropdownBtn}
+              icon={
+                <Avatar
+                  size={18}
+                  shape="circle"
+                  style={{
+                    backgroundColor: "rgb(143, 114, 222)",
+                    fontSize: "0.6875rem",
+                  }}
+                >
+                  ZH
+                </Avatar>
+              }
+            ></Button>
+          </Dropdown>
+        </Col>
+        <Col span={20}>
+          <Button
+            icon={<IconPlus></IconPlus>}
+            type="primary"
+            size="small"
+            className={classes.dropdownBtn}
+          >
+            New issue
+          </Button>
+        </Col>
         <Col span={4}>search</Col>
       </Row>
       <div className="cursor-default">Operate Bar</div>
