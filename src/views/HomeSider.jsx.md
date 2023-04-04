@@ -4,7 +4,7 @@
  * @Author       : zzz
  * @Date         : 2023-04-01 15:16:02
  * @LastEditors  : zzz
- * @LastEditTime : 2023-04-01 17:17:37
+ * @LastEditTime : 2023-04-04 17:53:53
  */
 import React from "react";
 import { Dropdown, Menu, Button, Divider, Grid } from "@arco-design/web-react";
@@ -62,6 +62,7 @@ export default function HomeSider() {
   return (
     <div>
       <div className={classes.siderHeader}>
+        {/* 头部的工作台及账户区 */}
         <Row align="center" justify="start">
           <Col span={20}>
             <Dropdown
@@ -95,11 +96,11 @@ export default function HomeSider() {
             </Dropdown>
           </Col>
         </Row>
+        {/* 头部的操作条 */}
         <Row align="center" justify="start">
           <Col span={20}>
             <Button
               icon={<IconPlus></IconPlus>}
-              type="primary"
               size="small"
               className={classes.dropdownBtn}
             >
@@ -107,11 +108,18 @@ export default function HomeSider() {
             </Button>
           </Col>
           <Col span={4}>
-            <Button icon={<IconSearch />} type="primary" size="small"></Button>
+            <Button icon={<IconSearch />} size="small"></Button>
           </Col>
         </Row>
       </div>
-      <div className="cursor-default">QuickViews</div>
+      <div className="cursor-default">
+        <Menu mode="vertical" defaultSelectedKeys={["Inbox"]}>
+          <Menu.Item key="Inbox">Inbox</Menu.Item>
+          <Menu.Item key="MyIssues">My issues</Menu.Item>
+          <Menu.Item key="Views">Views</Menu.Item>
+          <Menu.Item key="Roadmaps">Roadmaps</Menu.Item>
+        </Menu>
+      </div>
       <div className="Your teams">QuickViews</div>
     </div>
   );

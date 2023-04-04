@@ -4,7 +4,7 @@
  * @Author       : zzz
  * @Date         : 2023-04-01 15:57:47
  * @LastEditors  : zzz
- * @LastEditTime : 2023-04-01 15:59:07
+ * @LastEditTime : 2023-04-04 15:25:25
  */
 import { Avatar } from "@arco-design/web-react";
 import classes from "./AccountAvatar.module.css";
@@ -22,7 +22,7 @@ export default function AccountAvatar(props: IAccountAvatarProps) {
   return (
     <Avatar
       size={props.size}
-      shape="square"
+      shape="circle"
       className={props.calssName + " " + classes.avatar}
     >
       {props.imgUrl ? (
