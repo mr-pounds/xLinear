@@ -1,8 +1,10 @@
 # template-vite-react-ts-tailwind-v3
 
+#todo NextUI有些用不习惯，还是用ant.design比较好。
 - [vite](tailwind)
 - [tailwind v3.x](https://tailwindcss.com/)
-- [acro design](https://arco.design/react/docs/token)
+- [Next UI](https://nextui.org/docs/guide/getting-started)
+- [icon](https://feathericons.com/)
 - [redux](https://redux.js.org/)
 
 ## Started
