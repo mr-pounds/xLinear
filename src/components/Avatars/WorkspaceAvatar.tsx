@@ -1,7 +1,12 @@
-import { Avatar } from "@arco-design/web-react";
-import classes from "./WorkspaceAvatar.module.css";
-
-import React from "react";
+/*
+ * @Name         :
+ * @Version      : 1.0.1
+ * @Author       : zzz
+ * @Date         : 2023-04-06 22:08:58
+ * @LastEditors  : zzz
+ * @LastEditTime : 2023-04-06 22:26:56
+ */
+import { Avatar } from "antd";
 
 interface IWorkspaceAvatarProps {
   size: number;
@@ -15,7 +20,7 @@ export default function WorkspaceAvatar(props: IWorkspaceAvatarProps) {
     <Avatar
       size={props.size}
       shape="square"
-      className={props.calssName + " " + classes.avatar}
+      className={props.calssName + " mr-2 bg-violet-500"}
     >
       {props.imgUrl ? (
         <img alt="WorkspaceAvatar" src={props.imgUrl} />

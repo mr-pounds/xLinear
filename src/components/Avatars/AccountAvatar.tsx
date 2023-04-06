@@ -4,12 +4,9 @@
  * @Author       : zzz
  * @Date         : 2023-04-01 15:57:47
  * @LastEditors  : zzz
- * @LastEditTime : 2023-04-04 15:25:25
+ * @LastEditTime : 2023-04-06 22:21:05
  */
-import { Avatar } from "@arco-design/web-react";
-import classes from "./AccountAvatar.module.css";
-
-import React from "react";
+import { Avatar } from "antd";
 
 interface IAccountAvatarProps {
   size: number;
@@ -23,10 +20,10 @@ export default function AccountAvatar(props: IAccountAvatarProps) {
     <Avatar
       size={props.size}
       shape="circle"
-      className={props.calssName + " " + classes.avatar}
+      className={props.calssName + " bg-blue-500"}
     >
       {props.imgUrl ? (
-        <img alt="WorkspaceAvatar" src={props.imgUrl} />
+        <img alt="AccountAvatar" src={props.imgUrl} />
       ) : (
         props.text
       )}
