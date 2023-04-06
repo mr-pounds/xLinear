@@ -3,7 +3,7 @@
 #todo NextUI有些用不习惯，还是用ant.design比较好。
 - [vite](tailwind)
 - [tailwind v3.x](https://tailwindcss.com/)
-- [Acro design](https://arco.design/)
+- [Acro design](https://ant.design/index-cn)
 - [redux](https://redux.js.org/)
 
 ## Started
