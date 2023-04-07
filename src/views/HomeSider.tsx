@@ -4,16 +4,16 @@
  * @Author       : zzz
  * @Date         : 2023-04-06 15:51:48
  * @LastEditors  : zzz
- * @LastEditTime : 2023-04-07 10:24:17
+ * @LastEditTime : 2023-04-07 11:26:58
  */
 import { Layout, Button, Dropdown, Menu, Col, Row } from "antd";
 import type { MenuProps } from "antd";
 import AccountAvatar from "../components/Avatars/AccountAvatar";
 import WorkspaceAvatar from "../components/Avatars/WorkspaceAvatar";
 import {
+  BellOutlined,
   ExpandOutlined,
   FormOutlined,
-  InboxOutlined,
   PullRequestOutlined,
   RadiusSettingOutlined,
   SearchOutlined,
@@ -97,26 +97,66 @@ const accountMenu: MenuProps["items"] = [
   },
 ];
 
-const navMenu = [
+const navMenu: MenuProps["items"] = [
   {
     label: "Inbox",
     key: "Inbox",
-    icon: <InboxOutlined size={18} className="relative -top-1" />,
+    icon: <BellOutlined size={16} />,
   },
   {
     label: "My issues",
     key: "issues",
-    icon: <ExpandOutlined size={16} className="relative -top-1" />,
+    icon: <ExpandOutlined size={16} />,
   },
   {
     label: "Views",
     key: "Views",
-    icon: <RadiusSettingOutlined size={16} className="relative -top-1" />,
+    icon: <RadiusSettingOutlined size={16} />,
   },
   {
     label: "Roadmaps",
     key: "Roadmaps",
-    icon: <PullRequestOutlined size={16} className="relative -top-1" />,
+    icon: <PullRequestOutlined size={16} />,
+  },
+];
+
+const teamsMenu: MenuProps["items"] = [
+  {
+    label: "Your teams",
+    key: "teams",
+    children: [
+      {
+        label: "740870608@qq.com",
+        key: "740870608@qq.com",
+        children: [
+          {
+            label: "Issues",
+            key: "Issues",
+            icon: <PullRequestOutlined size={16} />,
+            children: [
+              {
+                label: "Active",
+                key: "Active",
+              },
+              {
+                label: "Backlog",
+                key: "Backlog",
+              },
+            ],
+          },
+          {
+            label: "Projects",
+            key: "Projects",
+            icon: <PullRequestOutlined size={16} />,
+          },
+          {
+            label: "Views",
+            key: "Views",
+            icon: <PullRequestOutlined size={16} />,
+          },
+        ],
+      },
+    ],
   },
 ];
 
@@ -168,7 +208,7 @@ export default function HomeSider() {
           <Col span={19} className="h-8 leading-8">
             <Button
               block={true}
-              className="border border-solid"
+              className="border border-solid text-left"
               icon={<FormOutlined className="relative -top-0.5" />}
             >
               New issue
@@ -183,17 +223,10 @@ export default function HomeSider() {
         </Row>
       </Header>
       <Content className="flex-1 pl-4 pr-4">
-        {navMenu?.map((item) => (
-          <Button
-            block={true}
-            type="text"
-            icon={item?.icon}
-            key={item?.key}
-            className="text-left"
-          >
-            {item.label}
-          </Button>
-        ))}
+        <Menu items={navMenu} className="homeNav w-full"></Menu>
+        <Row>
+          <Menu items={teamsMenu} mode="inline"></Menu>
+        </Row>
       </Content>
       <Footer className="flex-initial">This is Footer</Footer>
     </Layout>

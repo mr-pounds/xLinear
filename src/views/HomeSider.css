@@ -1,3 +1,11 @@
-.homeNav > .li {
-  height: 32px;
+.homeNav li {
+  height: 28px !important;
+  margin: 0 0 2px 0 !important;
+  padding: 0 8px 0 8px !important;
+  line-height: 28px !important;
+  width: 100% !important;
+}
+
+.homeNav {
+  border-inline-end: 0px !important;
 }
