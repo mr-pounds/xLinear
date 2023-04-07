@@ -4,13 +4,21 @@
  * @Author       : zzz
  * @Date         : 2023-04-06 15:51:48
  * @LastEditors  : zzz
- * @LastEditTime : 2023-04-06 22:40:30
+ * @LastEditTime : 2023-04-07 10:24:17
  */
-import { Layout, Button, Dropdown, Avatar, Col, Row } from "antd";
+import { Layout, Button, Dropdown, Menu, Col, Row } from "antd";
 import type { MenuProps } from "antd";
 import AccountAvatar from "../components/Avatars/AccountAvatar";
 import WorkspaceAvatar from "../components/Avatars/WorkspaceAvatar";
-import { EditOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+  ExpandOutlined,
+  FormOutlined,
+  InboxOutlined,
+  PullRequestOutlined,
+  RadiusSettingOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
+import "./HomeSider.css";
 
 const { Header, Content, Footer } = Layout;
 
@@ -48,12 +56,76 @@ const workspaceMenu: MenuProps["items"] = [
   },
 ];
 
+const accountMenu: MenuProps["items"] = [
+  {
+    label: "View profile",
+    key: "profile",
+  },
+  {
+    label: "Settings",
+    key: "settings",
+  },
+  {
+    label: "Download desktop app",
+    key: "app",
+  },
+  {
+    type: "divider",
+  },
+  {
+    label: "Help",
+    key: "help",
+  },
+  {
+    label: "Changelog",
+    key: "changelog",
+  },
+  {
+    label: "Documentation",
+    key: "Documentation",
+  },
+  {
+    label: "Join Slack community",
+    key: "community",
+  },
+  {
+    type: "divider",
+  },
+  {
+    label: "Log out",
+    key: "logout",
+  },
+];
+
+const navMenu = [
+  {
+    label: "Inbox",
+    key: "Inbox",
+    icon: <InboxOutlined size={18} className="relative -top-1" />,
+  },
+  {
+    label: "My issues",
+    key: "issues",
+    icon: <ExpandOutlined size={16} className="relative -top-1" />,
+  },
+  {
+    label: "Views",
+    key: "Views",
+    icon: <RadiusSettingOutlined size={16} className="relative -top-1" />,
+  },
+  {
+    label: "Roadmaps",
+    key: "Roadmaps",
+    icon: <PullRequestOutlined size={16} className="relative -top-1" />,
+  },
+];
+
 export default function HomeSider() {
   return (
-    <Layout className="flex h-full flex-col">
+    <Layout className="flex h-full flex-col  bg-white">
       <Header className="h-24 flex-initial bg-white pb-3 pl-4 pr-4 pt-3">
         <Row justify="start" align="top" gutter={[12, 8]}>
-          <Col span={20} className="h-8 leading-8">
+          <Col span={19} className="h-8 leading-8">
             <Dropdown
               menu={{ items: workspaceMenu }}
               placement="bottomLeft"
@@ -61,24 +133,22 @@ export default function HomeSider() {
             >
               <Button
                 type="text"
-                className="w-40 border-0 pb-1.5 pl-2 pr-2 pt-1.5"
+                className="w-full overflow-hidden border-0 pb-1.5 pl-2 pr-2 pt-1.5"
                 icon={
                   <WorkspaceAvatar
                     size={18}
                     text="ZH"
-                    calssName="relative -top-2"
+                    calssName="relative -top-0.5"
                   />
                 }
               >
-                <span className=" inline-block w-28 overflow-hidden">
-                  zhengzhizhan-mes
-                </span>
+                zhengzhizhan-mes
               </Button>
             </Dropdown>
           </Col>
-          <Col span={4} className="h-8 leading-8">
+          <Col span={5} className="h-8 leading-8">
             <Dropdown
-              menu={{ items: workspaceMenu }}
+              menu={{ items: accountMenu }}
               placement="bottomLeft"
               trigger={["click"]}
             >
@@ -95,15 +165,16 @@ export default function HomeSider() {
               ></Button>
             </Dropdown>
           </Col>
-          <Col span={20} className="h-8 leading-8">
+          <Col span={19} className="h-8 leading-8">
             <Button
-              className="w-40 border border-solid"
-              icon={<EditOutlined className="relative -top-0.5" />}
+              block={true}
+              className="border border-solid"
+              icon={<FormOutlined className="relative -top-0.5" />}
             >
               New issue
             </Button>
           </Col>
-          <Col span={4} className="h-8 leading-8">
+          <Col span={5} className="h-8 leading-8">
             <Button
               className="border border-solid"
               icon={<SearchOutlined className="relative -top-0.5" />}
@@ -111,7 +182,19 @@ export default function HomeSider() {
           </Col>
         </Row>
       </Header>
-      <Content className="flex-1">This is Content</Content>
+      <Content className="flex-1 pl-4 pr-4">
+        {navMenu?.map((item) => (
+          <Button
+            block={true}
+            type="text"
+            icon={item?.icon}
+            key={item?.key}
+            className="text-left"
+          >
+            {item.label}
+          </Button>
+        ))}
+      </Content>
       <Footer className="flex-initial">This is Footer</Footer>
     </Layout>
   );
